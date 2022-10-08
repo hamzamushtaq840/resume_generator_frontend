@@ -1,14 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Resume from "./components/ResumeGenerator/Resume";
-import Companies from "./components/Companies";
-import AboutUs from "./components/AboutUs";
-import SignIn from "./components/UserSign/SignIn";
-import Signup from "./components/UserSign/Signup";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Home from "./Components/Home";
+import Resume from "./Components/ResumeGenerator/Resume";
+import Companies from "./Components/Companies";
+import AboutUs from "./Components/AboutUs";
+// import FrontPage from './Components/UserSign/FrontPage';
+
 import { ThemeProvider } from "next-themes";
+import EmployeeSignup from './Components/Signup/Employee Signup/EmployeeSignup';
+import CompanySignup from './Components/Signup/Company Signup/CompanySignup';
+import SignIn from './Components/Login/SignIn';
+import {ToastContainer, toast } from 'react-toastify';
 
 function App() {
   return (
@@ -16,22 +19,22 @@ function App() {
       <ThemeProvider>
         <div className="max-w-6xl mx-auto p-4 space-y-24">
           <Router>
-            <Navbar />
+            
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Resume" element={<Resume/>} />
-              <Route path="/Companies" element={<Companies/>} />
-              <Route path="/AboutUs" element={<AboutUs/>} /> 
-              <Route path="/Signin" element={<SignIn/>} /> 
-              <Route path="/signup" element={<Signup/>} /> 
+              <Route path='SignIn' element={<SignIn/>}/>
+              <Route path='EmployeeSignup' element={<EmployeeSignup/>} />
+              <Route path='CompanySignup' element={<CompanySignup/>} />
+              {/* <Route path='FrontPage' element={<FrontPage/>} /> */}
+
+
             </Routes>
           </Router>
-       
-      </div>
-        <div>
-          <Footer/>
           </div>
+          
+          <ToastContainer autoClose={1000}/>
       </ThemeProvider>
+
     </React.Fragment>
   );
 }

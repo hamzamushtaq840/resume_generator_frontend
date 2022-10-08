@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { X } from "react-feather";
-import InputControl from "../Inputcontrols/InputControl"
+import InputControl from "../Inputcontrols/InputControl";
 import styles from "./Editor.module.css";
 
 function Editor(props) {
-  
   const sections = props.sections;
   const information = props.information;
 
@@ -41,6 +40,7 @@ function Editor(props) {
           label="Experience"
           placeholder="Enter title eg. Frontend developer"
           value={values.title}
+          required
           onChange={(event) =>
             setValues((prev) => ({ ...prev, title: event.target.value }))
           }
@@ -49,6 +49,7 @@ function Editor(props) {
           label="Company Name"
           placeholder="Enter company name eg. amazon"
           value={values.companyName}
+          required
           onChange={(event) =>
             setValues((prev) => ({ ...prev, companyName: event.target.value }))
           }
@@ -102,8 +103,6 @@ function Editor(props) {
           placeholder="Line 1"
           value={values.points ? values.points[0] : ""}
           onChange={(event) => handlePointUpdate(event.target.value, 0)}
-
-
         />
       </div>
     </div>
@@ -152,7 +151,6 @@ function Editor(props) {
           placeholder="Line 1"
           value={values.points ? values.points[0] : ""}
           onChange={(event) => handlePointUpdate(event.target.value, 0)}
-
         />
       </div>
     </div>
@@ -186,18 +184,14 @@ function Editor(props) {
           onChange={(event) =>
             setValues((prev) => ({ ...prev, startDate: event.target.value }))
           }
-
         />
       </div>
     </div>
   );
   const basicInfoBody = (
     <div className={styles.detail}>
-
       <div className={styles.row}>
-
         <InputControl
-
           label="Your Name"
           placeholder="Enter your full name "
           value={values.name}
@@ -281,10 +275,10 @@ function Editor(props) {
   );
   const summaryBody = (
     <div className={styles.detail}>
-      <InputControl 
+      <InputControl
         label="Summary"
         value={values.summary}
-        placeholder= "Enter your objective/summary"
+        placeholder="Enter your objective/summary"
         onChange={(event) =>
           setValues((prev) => ({ ...prev, summary: event.target.value }))
         }
@@ -504,9 +498,7 @@ function Editor(props) {
       companyName: activeInfo?.details
         ? activeInfo.details[0]?.companyName || ""
         : "",
-      college: activeInfo?.details
-        ? activeInfo.details[0]?.college || ""
-        : "",
+      college: activeInfo?.details ? activeInfo.details[0]?.college || "" : "",
       location: activeInfo?.details
         ? activeInfo.details[0]?.location || ""
         : "",
@@ -519,8 +511,8 @@ function Editor(props) {
           ? [...activeInfo.details[0]?.points]
           : ""
         : activeInfo?.points
-          ? [...activeInfo.points]
-          : "",
+        ? [...activeInfo.points]
+        : "",
       title: activeInfo?.details
         ? activeInfo.details[0]?.title || ""
         : activeInfo?.detail?.title || "",
@@ -566,8 +558,9 @@ function Editor(props) {
       <div className={styles.header}>
         {Object.keys(sections)?.map((key) => (
           <div
-            className={`${styles.section} ${activeSectionKey === key ? styles.active : ""
-              }`}
+            className={`${styles.section} ${
+              activeSectionKey === key ? styles.active : ""
+            }`}
             key={key}
             onClick={() => setActiveSectionKey(key)}
           >
@@ -578,7 +571,6 @@ function Editor(props) {
 
       <div className={styles.body}>
         <InputControl
-
           placeholder="Enter section title"
           value={sectionTitle}
           onChange={(event) => setSectionTitle(event.target.value)}
@@ -587,26 +579,27 @@ function Editor(props) {
         <div className={styles.chips}>
           {activeInformation?.details
             ? activeInformation?.details?.map((item, index) => (
-              <div
-                className={`${styles.chip} ${activeDetailIndex === index ? styles.active : ""
+                <div
+                  className={`${styles.chip} ${
+                    activeDetailIndex === index ? styles.active : ""
                   }`}
-                key={item.title + index}
-                onClick={() => setActiveDetailIndex(index)}
-              >
-                <p>
-                  {sections[activeSectionKey]} {index + 1}
-                </p>
-                <X
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    handleDeleteDetail(index);
-                  }}
-                />
-              </div>
-            ))
+                  key={item.title + index}
+                  onClick={() => setActiveDetailIndex(index)}
+                >
+                  <p>
+                    {sections[activeSectionKey]} {index + 1}
+                  </p>
+                  <X
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      handleDeleteDetail(index);
+                    }}
+                  />
+                </div>
+              ))
             : ""}
           {activeInformation?.details &&
-            activeInformation?.details?.length > 0 ? (
+          activeInformation?.details?.length > 0 ? (
             <div className={styles.new} onClick={handleAddNew}>
               +New
             </div>
@@ -617,8 +610,13 @@ function Editor(props) {
 
         {generateBody()}
 
-        <button onClick={handleSubmission} className="rounded-md bg-[#64c1ff]   px-2 text-Black hover:text-blue-500 hover:bg-white py-1 shadow transition-all 
-        duration-500" >Save</button>
+        <button
+          onClick={handleSubmission}
+          className="rounded-md bg-[#64c1ff]   px-2 text-Black hover:text-blue-500 hover:bg-white py-1 shadow transition-all 
+        duration-500"
+        >
+          Save
+        </button>
       </div>
     </div>
   );
