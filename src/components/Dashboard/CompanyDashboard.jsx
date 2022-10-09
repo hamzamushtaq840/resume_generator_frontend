@@ -1,7 +1,7 @@
 import React from "react";
 
 function CompanyDashboard() {
-  return <div>CompanyDashboard</div>;
+  return <div>CompanyDashboadsasdasdsaard</div>;
 }
 
 export default CompanyDashboard;

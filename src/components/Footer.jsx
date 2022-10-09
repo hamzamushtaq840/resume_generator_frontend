@@ -10,7 +10,7 @@ import {
 const Footer = () => {
   return (
     <React.Fragment>
-      <div className=" max-w bg-[#64c1ff] mx-auto py-0 px-3 grid lg:grid-cols-3 gap-4 text-black pt-50">
+      <div className=" w-100 bg-[#64c1ff]  pt-20px py-0 px-3 grid lg:grid-cols-3 gap-4 text-black pt-50">
         <div className="pt-20px">
           <h1 className="w-full text-3xl font-bold text-[#000000]">
             Resume Assisted

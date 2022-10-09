@@ -64,7 +64,7 @@ function Navbar() {
             hadow transition-all duration-500 
             hover:bg-black py-1 font-bold text-white "
           >
-            <Link to="/FrontPage">SignUp</Link>
+            <Link to="/SignUpMain">SignUp</Link>
           </button>
         </div>
 
@@ -101,7 +101,7 @@ function Navbar() {
           hadow transition-all duration-500 
           hover:bg-black py-1 font-bold text-white"
         >
-          <Link to="/FrontPage">SignUp</Link>
+          <Link to="/SignUpMain">SignUp</Link>
         </button>
       </div>
     </div>

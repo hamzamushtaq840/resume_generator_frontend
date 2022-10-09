@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import gresume from "../assets/gresume.png";
-import companies from "../assets/companies.png";
-import Recomendations from "../assets/Recomendations.png";
+import gresume from "../Assets/gresume.png";
+import companies from "../Assets/companies.png";
+import Recomendations from "../Assets/Recomendations.png";
 
 import Typed from "react-typed";
 

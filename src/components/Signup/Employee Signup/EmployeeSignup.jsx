@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import registerimg from "../../../assets/Register.png";
+import registerimg from "../../../Assets/Register.png";
 import "./Employee.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
@@ -7,10 +7,25 @@ import Footer from "../../Footer";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 export default function EmployeeSignup() {
   const inputRef = useRef(null);
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+
+  let abc = "employee";
+  // console.log(typeof user?.userInfo);
+  console.log(Object.values(user.userInfo).includes(abc));
+
+  // var found = Object.keys(obj).filter(function (key) {
+  //   return obj[key] === "test1";
+  // });
+
+  // if (found.length) {
+  //   alert("exists");
+  // }
+  // console.log(user?.userInfo?.role?.find((role) => abc?.includes(role)));
 
   const handleSubmit = (e) => {
     e.preventDefault();

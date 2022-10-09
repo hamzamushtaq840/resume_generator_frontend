@@ -1,13 +1,19 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
-import Uiimg from "./../../assets/login.png";
+import Uiimg from "./../../Assets/login.png";
 import "./Signin.css";
 import axios from "axios";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
+import { useDispatch } from "react-redux";
+import { userActions } from "./../../Redux/user-slice";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function SignIn() {
   const inputRef = useRef(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +25,25 @@ export default function SignIn() {
 
     axios
       .post("http://localhost:5000/api/login", data)
+
       .then(function (response) {
-        console.log(response.data.user.role);
+        // console.log(response.data.user);
+        let obj = response.data.user;
+        obj.token = response.data.token;
+        console.log(obj);
+        dispatch(userActions.userInfo(obj));
+        if (obj.role === "employee") {
+          navigate("/EmployeeDashboard");
+        }
+        if (obj.role === "company") {
+          navigate("/CompanyDashboard");
+        }
+        // navigate(from, { replace: true });
       })
       .catch(function (error) {
         console.log("error here");
         console.log(error);
       });
-    console.log(data);
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import registerimg from "../../../assets/Register.png";
+import registerimg from "../../../Assets/Register.png";
 import "./Company.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";

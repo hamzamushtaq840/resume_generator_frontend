@@ -1,0 +1,22 @@
+import { useLocation, Navigate, Outlet } from "react-router-dom";
+// import useAuth from "../../Hooks/useAuth";
+import { useSelector } from "react-redux";
+
+const RequireAuth = (allowedRoles) => {
+  let user = useSelector((state) => state.user.userInfo);
+  const location = useLocation();
+  console.log(user);
+  console.log(allowedRoles);
+  console.log(Object.values(user).includes(allowedRoles.allowedRoles));
+
+  return Object.values(user).includes(allowedRoles.allowedRoles) ? (
+    <Outlet />
+  ) : user?.userInfo?.id ? (
+    <Navigate to="/Unauthorized" state={{ from: location }} replace />
+  ) : (
+    // is replace login in their nav history with the location they came from
+    <Navigate to="/Unauthorized" state={{ from: location }} replace />
+  );
+};
+
+export default RequireAuth;

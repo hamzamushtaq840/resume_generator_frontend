@@ -1,7 +1,7 @@
 import React from "react";
 
 import Typed from "react-typed";
-import resume from "../assets/resume.svg";
+import resume from "../Assets/resume.svg";
 import Features from "./Features";
 import Footer from "./Footer";
 import Navbar from "./Navbar";

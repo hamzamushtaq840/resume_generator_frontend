@@ -1,8 +1,8 @@
 import React from "react";
 import Typed from "react-typed";
-import facebook from "../assets/facebook.png";
-import microsoft from "../assets/microsoft.png";
-import amazon from "../assets/amazon.png";
+import facebook from "../Assets/facebook.png";
+import microsoft from "../Assets/microsoft.png";
+import amazon from "../Assets/amazon.png";
 import { Link } from "react-router-dom";
 
 const Companies = () => {
