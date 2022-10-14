@@ -1,0 +1,123 @@
+.modalBackground {
+  width: 100%;
+  min-width: calc(100vw - 100%);
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 10;
+  /* background-color: #000; */
+  animation: mymove 2s forwards;
+  z-index: 10000000000000000000000000000000000000000000000000000000000000;
+}
+
+@keyframes mymove {
+  from {background-color: transparent;}
+  to {background-color: rgba(0, 0, 0, 0.498);}
+}
+
+.modalContainer {
+  
+  width: 450px;
+  min-height: 40%;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 25px;
+  font-family: 'Roboto Flex', sans-serif;
+  position: fixed;
+  /* top: 50%; */
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  animation-name: animateModal;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-name: animateModal;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  z-index: 10000000000000000000000000000000000000000000000000000000000000;
+}
+
+.body{
+display: flex;
+flex-direction: column;
+}
+.radio
+{
+  display: flex;
+  gap: 20px;
+}
+.head
+{
+  display: flex;
+  justify-content: center;
+}
+.head h1
+{
+    font-size: 25px;
+    line-height: 1.2;
+    /* margin: 8px 0 0px 10px; */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+}
+.name
+{
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+.footer
+{
+  display: flex;
+  justify-content: flex-end;
+}
+.footer button
+{
+  background-color: #007BFF;
+  background: linear-gradient(90deg, rgba(4,75,122,1) 2%, rgba(4,99,119,1));
+  border-radius: 4px;
+  color: white;
+  height: 30px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.body button
+{
+  display: inline-block;
+  cursor: pointer;
+  /* width: 10%; */
+  background: linear-gradient(90deg, rgba(4,75,122,1) 2%, rgba(4,99,119,1));
+  color: white;
+  border-radius: 4px;
+  padding: 10px 10px;
+}
+.input
+{
+  display: inline-block;
+  cursor: pointer;
+  /* width: 10%; */
+  background: linear-gradient(90deg, rgba(4,75,122,1) 2%, rgba(4,99,119,1));
+  color: white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+}
+
+@keyframes animateModal {
+  0% {
+    top: -20px;
+  }
+  100% {
+    top: 50%;
+  }
+}

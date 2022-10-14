@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.Main
+{
+    background-color: white;
+    margin-left: 14px;
+    min-height: 86vh;
+    border-radius: 10px;
+    padding: 20px;
+    width: 98%;
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Poppins', sans-serif !important;
+}
+.Main h1
+{
+    font-size: 30px;
+    font-weight: 600 !important;
+}
+.imgContain
+{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.borderInput
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* line-height: 100px; */
+  background: linear-gradient(to right, rgb(24, 24, 24) 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(rgb(0, 0, 0) 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(to right, rgb(16, 16, 16) 50%, rgba(255, 255, 255, 0) 0%), linear-gradient(rgb(14, 13, 13) 50%, rgba(255, 255, 255, 0) 0%);
+
+  background-position: top, right, bottom, left;
+  background-repeat: repeat-x, repeat-y;
+  background-size: 10px 1px, 1px 10px;
+  /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='1' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"); */
+  
+  height: 80px;
+  width: 23%;
+  min-width: 0px;
+}
+
+.input{
+  display: inline-block;
+  cursor: pointer;
+  /* width: 10%; */
+  background: linear-gradient(90deg, rgba(4,75,122,1) 2%, rgba(4,99,119,1));
+  color: white;
+  border-radius: 4px;
+  padding: 10px 10px;
+}
+
+  
+.input::file-selector-button{
+    width: 1px;
+ 
+}
+
+@media only screen and (max-width: 764px) {
+    .Main
+    {
+        margin: 20px 15px;
+        min-height: 85vh;
+        width: 90%;
+
+    }
+    .Main h1
+    {
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 600px) {
+  
+    .Main h1
+    {
+        font-size: 20px;
+        font-weight: 600 !important;
+    }
+}

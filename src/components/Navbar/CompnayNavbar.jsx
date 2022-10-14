@@ -4,9 +4,21 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { userActions } from "./../../Redux/user-slice";
-import { getCourseIdOnClickactions } from "./../../Redux/course-slice";
+import { userActions } from "../../Redux/user-slice";
+import { getCourseIdOnClickactions } from "../../Redux/course-slice";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import PersonIcon from '@mui/icons-material/Person';
+import MenuIcon from '@mui/icons-material/Menu';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { TextField } from "@mui/material";
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
+import ArticleIcon from '@mui/icons-material/Article';
+import GradingIcon from '@mui/icons-material/Grading';
+import DomainVerificationIcon from '@mui/icons-material/DomainVerification';
+import TaskIcon from '@mui/icons-material/Task';
+import Logout from "@mui/icons-material/Logout";
 
 const Navbar2 = (props) => {
   const breadcrumbs = useBreadcrumbs();
@@ -80,57 +92,30 @@ const Navbar2 = (props) => {
               <img src={image} width="50px" alt="logo"></img>
             </div>
             <hr className="hr"></hr>
-            <li className="nav-text" title="Dashboard">
+            <li className="nav-text" title="Jobs">
               <Link
                 onClick={() => setTop(false)}
                 className={
-                  (location.pathname === "/dashboard" ||
-                    location.pathname === "/dashboard/createCourse") &&
-                  sidebar === false
+                  newLocationName === "/Jobs" && sidebar === false
                     ? "flexstartborder"
-                    : sidebar === true && location.pathname === "/dashboard"
+                    : sidebar === true && newLocationName === "/Jobs"
                     ? "flexcenterborder"
                     : sidebar === true
                     ? "flexstart"
                     : "flexcenter"
                 }
-                to={"/dashboard"}
+                to={"/Jobs"}
               >
-                <i className="bi bi-menu-button-wide-fill"></i>
-                {<span>Dashboard</span>}
+                {/* <i class="bi bi-book"></i> */}
+                <WorkOutlineIcon/>
+                {<span>Jobs</span>}
               </Link>
             </li>
 
-            <li className="nav-text" title="Courses">
-              <Link
-                onClick={() => setTop(false)}
-                className={
-                  newLocationName === "/courses" && sidebar === false
-                    ? "flexstartborder"
-                    : sidebar === true && newLocationName === "/courses"
-                    ? "flexcenterborder"
-                    : sidebar === true
-                    ? "flexstart"
-                    : "flexcenter"
-                }
-                to={"/courses"}
-              >
-                <i class="bi bi-book"></i>
-                {<span>Courses</span>}
-              </Link>
-            </li>
-
-            {typeof courseIdredux === "number" &&
-              (location.pathname === "/courses" ||
-                location.pathname === "/courses/pools" ||
-                location.pathname === "/courses/setting" ||
-                location.pathname === "/courses/content" ||
-                location.pathname === "/courses/quiz" ||
-                location.pathname === "/courses/assignment" ||
-                location.pathname === "/courses/editQuiz" ||
-                location.pathname === "/courses/poolQuestions" ||
-                location.pathname === "/courses/manangeStudents" ||
-                location.pathname === "/courses/poolQuestions") && (
+            {   (location.pathname === "/Jobs" ||
+                location.pathname === "/Jobs/Advertise" ||
+                location.pathname === "/Jobs/Selection" ||
+                location.pathname === "/Jobs/ResumeDetail" ) && (
                 <div
                   style={
                     sidebar === true
@@ -139,165 +124,68 @@ const Navbar2 = (props) => {
                   }
                   className={"subMenu"}
                 >
-                  <li className="nav-text" title="Content">
+                  <li className="nav-text" title="Advertise">
                     <NavLink
                       onClick={() => setTop(false)}
                       className={
-                        location.pathname === "/content" && sidebar === false
+                        location.pathname === "/Jobs/Advertise" && sidebar === false
                           ? "flexstartborder"
                           : sidebar === true &&
-                            location.pathname === "/courses/content"
+                            location.pathname === "/Jobs/Advertise"
                           ? "flexcenterborder"
                           : sidebar === true
                           ? "flexstart"
                           : "flexcenter"
                       }
-                      to={"/courses/content"}
+                      to={"/Jobs/Advertise"}
                     >
-                      <i class="bi bi-card-heading"></i>
-                      {<span>Content</span>}
+                      {/* <i class="bi bi-card-heading"></i> */}
+                      <ArticleIcon/>
+                      {<span>Advertise</span>}
                     </NavLink>
                   </li>
 
-                  <li className="nav-text" title="Quizzes">
+                  <li className="nav-text" title="Selection">
                     <NavLink
                       onClick={() => setTop(false)}
                       className={
-                        (location.pathname === "/courses/editQuiz" ||
-                          location.pathname === "/courses/preview" ||
-                          location.state === "/courses/displayQuiz" ||
-                          location.state === "/courses/result") &&
+                        (location.pathname === "/Jobs/Selection" || location.pathname === "/Jobs/ResumeDetail") &&
                         sidebar === false
                           ? "flexstartborder"
                           : sidebar === true &&
-                            (location.pathname === "/courses/quiz" ||
-                              location.pathname === "/courses/editQuiz")
+                            (location.pathname === "/Jobs/Selection" || location.pathname === "/Jobs/ResumeDetail")
                           ? "flexcenterborder"
                           : sidebar === true
                           ? "flexstart"
                           : "flexcenter"
                       }
-                      to={"/courses/quiz"}
+                      to={"/Jobs/Selection"}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-person-video3"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M14 9.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-6 5.7c0 .8.8.8.8.8h6.4s.8 0 .8-.8-.8-3.2-4-3.2-4 2.4-4 3.2Z" />
-                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h5.243c.122-.326.295-.668.526-1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v7.81c.353.23.656.496.91.783.059-.187.09-.386.09-.593V4a2 2 0 0 0-2-2H2Z" />
-                      </svg>
-                      {<span>Quizzes</span>}
+                      <TaskIcon/>
+                      {<span>Selection</span>}
                     </NavLink>
                   </li>
 
-                  {user.userInfo.user.id == courseClickUserId && (
-                    <li className="nav-text" title="Pools">
-                      <NavLink
-                        onClick={() => setTop(false)}
-                        className={
-                          (location.pathname === "/pools" ||
-                            location.pathname === "/courses/poolQuestions") &&
-                          sidebar === false
-                            ? "flexstartborder"
-                            : sidebar === true &&
-                              (location.pathname === "/courses/pools" ||
-                                location.pathname === "/courses/poolQuestions")
-                            ? "flexcenterborder"
-                            : sidebar === true
-                            ? "flexstart"
-                            : "flexcenter"
-                        }
-                        to={"/courses/pools"}
-                      >
-                        <i class="bi bi-journal-text"></i>
-                        {<span>Pools</span>}
-                      </NavLink>
-                    </li>
-                  )}
-
-                  <li className="nav-text" title="Assignment">
-                    <NavLink
-                      onClick={() => setTop(false)}
-                      className={
-                        location.pathname === "/pools" && sidebar === false
-                          ? "flexstartborder"
-                          : sidebar === true &&
-                            location.pathname === "/courses/assignment"
-                          ? "flexcenterborder"
-                          : sidebar === true
-                          ? "flexstart"
-                          : "flexcenter"
-                      }
-                      to={"/courses/assignment"}
-                    >
-                      <i class="bi bi-pencil-square"></i>
-                      {<span>Assignment</span>}
-                    </NavLink>
-                  </li>
-
-                  {user.userInfo.user.id === courseClickUserId && (
-                    <li className="nav-text" title="Setting">
-                      <NavLink
-                        onClick={() => setTop(false)}
-                        className={
-                          (location.pathname === "/pools" ||
-                            location.pathname === "/courses/manangeStudents") &&
-                          sidebar === false
-                            ? "flexstartborder"
-                            : sidebar === true &&
-                              location.pathname === "/courses/setting"
-                            ? "flexcenterborder"
-                            : sidebar === true
-                            ? "flexstart"
-                            : "flexcenter"
-                        }
-                        to={"/courses/setting"}
-                      >
-                        <i class="bi bi-gear"></i>
-                        {<span>Settings</span>}
-                      </NavLink>
-                    </li>
-                  )}
+                  
                 </div>
               )}
 
-            <li className="nav-text" title="Notification">
-              <Link
-                onClick={() => setTop(false)}
-                className={
-                  location.pathname === "/notification" && sidebar === false
-                    ? "flexstartborder"
-                    : sidebar === true && location.pathname === "/notification"
-                    ? "flexcenterborder"
-                    : sidebar === true
-                    ? "flexstart"
-                    : "flexcenter"
-                }
-                to={"/notification"}
-              >
-                <i class="bi bi-exclamation-circle"></i>
-                {<span>Notifications</span>}
-              </Link>
-            </li>
             <li className="nav-text" title="Profile">
               <Link
                 onClick={() => setTop(false)}
                 className={
-                  location.pathname === "/profile" && sidebar === false
+                  location.pathname === "/CompanyProfile" && sidebar === false
                     ? "flexstartborder"
-                    : sidebar === true && location.pathname === "/profile"
+                    : sidebar === true && location.pathname === "/CompanyProfile"
                     ? "flexcenterborder"
                     : sidebar === true
                     ? "flexstart"
                     : "flexcenter"
                 }
-                to={"/profile"}
+                to={"/CompanyProfile"}
               >
-                <i class="bi bi-person"></i>
+                {/* <i class="bi bi-person"></i> */}
+                <PermIdentityIcon/>
                 {<span>Profile</span>}
               </Link>
             </li>
@@ -315,7 +203,7 @@ const Navbar2 = (props) => {
                 }
                 to={"/"}
               >
-                <i class="bi bi-box-arrow-left"></i>
+                <LogoutIcon/>
                 {<span>Logout</span>}
               </Link>
             </li>
@@ -343,16 +231,12 @@ const Navbar2 = (props) => {
             >
               {/* <TextField className='anc1' id="outlined-basic" label="Search" variant="outlined" size='small' style={{width:'185px',height:'44px'}}/> */}
               {/* <PersonIcon className='anc' /> */}
-              <div className="circularportrait">
+              {/* <div className="circularportrait">
                 <img src={user?.userInfo?.user?.userImg} />
-              </div>
-              <div title="Logout">
-                <div className="anc4" onClick={logout}>
-                  Logout
-                </div>
-              </div>
-              <div className="anc1" onClick={showSidebar}>
-                Menu
+              </div> */}
+              <MenuIcon className='anc1' onClick={showSidebar} />
+              <div title='Logout'>
+              <LogoutIcon className="anc4" onClick={logout}/>
               </div>
             </div>
           </div>

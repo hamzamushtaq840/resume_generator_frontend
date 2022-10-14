@@ -7,6 +7,9 @@ import redux from "./Redux/index";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 let persistor = persistStore(redux);
 

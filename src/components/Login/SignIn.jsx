@@ -5,7 +5,7 @@ import axios from "axios";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useDispatch } from "react-redux";
-import { userActions } from "./../../Redux/user-slice";
+import { userActions } from "../../Redux/user-slice";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export default function SignIn() {
@@ -22,6 +22,7 @@ export default function SignIn() {
       email: e.target.email.value,
       password: e.target.password.value,
     };
+    console.log(data)
 
     axios
       .post("http://localhost:5000/api/login", data)
@@ -36,7 +37,7 @@ export default function SignIn() {
           navigate("/EmployeeDashboard");
         }
         if (obj.role === "company") {
-          navigate("/CompanyDashboard");
+          navigate("/Jobs");
         }
         // navigate(from, { replace: true });
       })
