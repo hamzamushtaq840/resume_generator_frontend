@@ -18,6 +18,7 @@ function Profile() {
   const [imageURL, setImageURL] = useState('');
   const [image, setImage] = useState('');
   const [file, setfile] = useState('');
+  const [trigger, setTrigger] = useState(false)
 
 
   const fileHandler = async (e) => {
@@ -89,7 +90,7 @@ function Profile() {
         console.log(err)
       })
 
-  }, [])
+  }, [trigger])
 
 
   const handleJob = (e) => {
@@ -100,10 +101,13 @@ function Profile() {
       && (input === users.location || (input === 'Select Country' && users.location === null)) &&
       (imageURL === users.img)
     ) {
-      console.log('Nothing to update');
+      toast.error('Nothing to update', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     }
     else {
       let data = {
+        id: user.id,
         name: name,
         description: description,
         location: input,
@@ -123,7 +127,7 @@ function Profile() {
             toast.success('Profile Updated', {
               position: toast.POSITION.TOP_RIGHT,
             });
-
+            setTrigger(state => !state)
           }
         }).catch((err) => {
           console.log(err)

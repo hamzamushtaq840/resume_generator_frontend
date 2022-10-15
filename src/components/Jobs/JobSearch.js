@@ -155,6 +155,7 @@ function JobSearch() {
 
   return (
     <div className={styles.Main}>
+      <h1 className={styles.haha}>Recommended Jobs For You</h1>
       <div className={styles.cardContainer}>
 
         {jobs.map((item, index) => {
