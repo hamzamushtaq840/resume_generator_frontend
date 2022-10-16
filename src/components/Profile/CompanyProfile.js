@@ -149,7 +149,7 @@ function Profile() {
             <img src={imageURL === "" ? "https://oneminuteenglish.org/wp-content/uploads/2021/09/Get-the-Gist-72-2048x1152.png?ezimgfmt=rs%3Adevice%2Frscb1-1" : imageURL}></img>
             <div className={styles.haha} >
               <label for="files" class="btn">Change Image</label>
-              <input accept=".png,.jpg,.jpeg" onChange={fileHandler} id="files" style={{ visibility: "hidden" }} type="file" />
+              <input accept=".png,.jpg,.jpeg,.jfif" onChange={fileHandler} id="files" style={{ visibility: "hidden" }} type="file" />
             </div>
           </div>
         </div>

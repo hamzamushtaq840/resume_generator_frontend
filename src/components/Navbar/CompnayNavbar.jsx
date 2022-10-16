@@ -1,5 +1,5 @@
 import "./CompanyNavbar.css";
-import image from "./../../Assets/logo.png";
+import image from "./../../Assets/mainLogo.jfif";
 import React, { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -7,18 +7,12 @@ import { useDispatch } from "react-redux";
 import { userActions } from "../../Redux/user-slice";
 import { getCourseIdOnClickactions } from "../../Redux/course-slice";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
-import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { TextField } from "@mui/material";
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import ArticleIcon from '@mui/icons-material/Article';
-import GradingIcon from '@mui/icons-material/Grading';
-import DomainVerificationIcon from '@mui/icons-material/DomainVerification';
 import TaskIcon from '@mui/icons-material/Task';
-import Logout from "@mui/icons-material/Logout";
 
 const Navbar2 = (props) => {
   const breadcrumbs = useBreadcrumbs();

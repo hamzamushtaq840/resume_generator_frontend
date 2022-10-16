@@ -149,7 +149,7 @@ function Profile() {
             <img src={imageURL === "" ? "http://www.clker.com/cliparts/f/a/0/c/1434020125875430376profile.png" : imageURL}></img>
             <div className={styles.haha} >
               <label for="files" class="btn">Change Image</label>
-              <input accept=".png,.jpg,.jpeg" onChange={fileHandler} id="files" style={{ visibility: "hidden" }} type="file" />
+              <input accept=".png,.jpg,.jpeg,.jfif" onChange={fileHandler} id="files" style={{ visibility: "hidden" }} type="file" />
             </div>
           </div>
         </div>

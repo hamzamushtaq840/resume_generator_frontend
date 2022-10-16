@@ -11,18 +11,18 @@ function Features() {
     <React.Fragment>
       <div>
         <h1
-          className=" flex-wrap text-center font-extrabold text-5xl mx-2 justify-items-center
+          className=" flex-wrap text-center font-extrabold text-5xl mt-20 justify-items-center
       text-[#64c1ff]"
-        >
-          <Typed
+        >APP FEATURES.
+          {/* <Typed
             className="text-[#64c1ff]  pl-2 text-5xl font-extrabold "
-            strings={["APP FEATURES."]}
+            strings={[" FEATURES."]}
             typeSpeed={120}
             backSpeed={140}
             loop
-          />
+          /> */}
         </h1>
-        <div className="w-full py-[10rem] px-4 ">
+        <div className="w-full py-[6rem] px-4 ">
           <div className="max-w-[1240px] mx-auto grid md:grid-cols-3 gap-8">
             <div
               className="w-full shadow-xl flex flex-col p-4 my-4 rounded-lg 
@@ -42,10 +42,9 @@ function Features() {
               </p>
               <div className="text-center font-medium">
                 <p className="py-2 border-b mx-8 mt-8">
-                  Create Your Own Resume
+                  Create Your Own Free Resume
                 </p>
-                <p className="py-2 border-b mx-8">Generate Your Resume</p>
-                <p className="py-2 border-b mx-8">Free Resume</p>
+               
               </div>
             </div>
             <div
@@ -65,12 +64,11 @@ function Features() {
               </p>
               <div className="text-center font-medium">
                 <p className="py-2 border-b mx-4 mt-8">
-                  Resmume Will Recoment you To a Job
+                  You Can Find A Suitable Job Here
                 </p>
                 <p className="py-2 border-b mx-4">
-                  New Employee Can Find A Job Here
+                  Resume Recommendation Jobs
                 </p>
-                <p className="py-2 border-b mx-8">And Be Recommended</p>
               </div>
             </div>
             <div
@@ -90,8 +88,8 @@ function Features() {
                 <p className="py-2 border-b mx-8 mt-8">
                   Explore Different Jobs
                 </p>
-                <p className="py-2 border-b mx-8">Standard Jobs</p>
                 <p className="py-2 border-b mx-8">For New Employees</p>
+                <p className="py-2 border-b mx-8">Standard Jobs</p>
               </div>
             </div>
           </div>

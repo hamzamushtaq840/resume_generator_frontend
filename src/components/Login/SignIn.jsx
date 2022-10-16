@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import Uiimg from "./../../Assets/login.png";
-import "./Signin.css";
+import styles from "./Signin.module.css";
 import axios from "axios";
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import { useDispatch } from "react-redux";
 import { userActions } from "../../Redux/user-slice";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
   const inputRef = useRef(null);
@@ -43,45 +44,55 @@ export default function SignIn() {
       })
       .catch(function (error) {
         console.log("error here");
-        console.log(error);
+        if(error.response.request.status === 400)
+        {
+          toast.error("Wrong Combination", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
+        if(error.response.request.status === 403)
+        {
+          toast.error("Wrong Combination", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        }
       });
   };
 
   return (
-    <React.Fragment>
+    <div className={styles.Main}>
       <Navbar />
 
-      <div className="main">
-        <div className="containerr">
-          <form ref={inputRef} onSubmit={handleSubmit}>
+      <div className={styles.main}>
+        <div className={styles.containerr}>
+          <form className={styles.form}ref={inputRef} onSubmit={handleSubmit}>
             <h2 style={{ color: "black" }}>Sign In</h2>
             <input
               placeholder="Enter Email"
-              class="input-info"
+              className={styles.input_info}
               name="email"
             ></input>
             <input
               name="password"
               placeholder="Enter Password"
-              class="input-info"
+              className={styles.input_info}
               type="password"
             ></input>
-            <button type="submit" placeholder="" class="submit">
+            <button type="submit" placeholder="" class="submit text-white">
               {" "}
-              submit
+              Submit
             </button>
             {/* <br /> */}
-            <Link to="#" className="link">
+            {/* <Link to="#" className={styles.link}>
               Forgot Password?
-            </Link>{" "}
+            </Link>{" "} */}
             <br />
           </form>
-          <div className="info-img">
+          <div className={styles.info_img}>
             <img src={Uiimg} alt="" />
           </div>
         </div>
-        <Footer />
       </div>
-    </React.Fragment>
+    </div>
   );
 }

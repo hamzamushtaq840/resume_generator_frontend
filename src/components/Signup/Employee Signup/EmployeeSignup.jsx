@@ -45,7 +45,7 @@ export default function EmployeeSignup() {
           toast.success("Account created", {
             position: toast.POSITION.TOP_RIGHT,
           });
-          navigate("/");
+          navigate("/SignIn");
         } else if (response?.response?.status === 400) {
           toast.error("Account with this email already exists", {
             position: toast.POSITION.TOP_RIGHT,
@@ -78,41 +78,39 @@ export default function EmployeeSignup() {
             <input
               type="text"
               name="name"
-              placeholder="Enter Your Name.."
+              placeholder="Name"
               class="input-info"
+              required
             ></input>
             <input
               type="email"
               name="email"
-              placeholder="Enter Your Email.."
+              placeholder="Email"
               class="input-info"
+              required
             ></input>
             {/* <input type="text" placeholder="+923" class="input-info"></input> */}
             <input
-              placeholder="Enter Your Password.."
+              placeholder="Password"
               type="password"
               name="password"
               class="input-info"
+              required
             ></input>
             <input
-              placeholder="Conform Your Password.."
+              placeholder="Confirm Password"
               name="confirm password"
               type="password"
               class="input-info"
+              required
             ></input>
-            <button class="submit">Sign Up</button>
-            {/* <br /> */}
-            <Link to="#" className="link">
-              Forgot Password?
-            </Link>{" "}
-            {/* <br /> */}
+            <button class="submit">SIGN UP</button>
             <Link to="/SignIn" className="link1">
               {" "}
               Already have an account?
             </Link>
           </form>
         </div>
-        <Footer />
       </div>
     </React.Fragment>
   );

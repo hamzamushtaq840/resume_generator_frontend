@@ -29,7 +29,7 @@ export default function CompanySignup() {
           toast.success("Account created", {
             position: toast.POSITION.TOP_RIGHT,
           });
-          navigate("/");
+          navigate("/SignIn");
         } else if (response?.response?.status === 400) {
           toast.error("Account with this email already exists", {
             position: toast.POSITION.TOP_RIGHT,
@@ -60,41 +60,39 @@ export default function CompanySignup() {
           <input
             type="name"
             name="name"
-            placeholder="Enter Your Name.."
+            placeholder="Company Name"
             class="input-info"
+            required
           ></input>
           <input
             type="email"
             name="email"
-            placeholder="Enter Your Email.."
+            placeholder="Company Email"
             class="input-info"
+            required
           ></input>
           {/* <input type="text" placeholder="+923" class="input-info"></input> */}
           <input
-            placeholder="Enter Your Password.."
+            placeholder="Password"
             name="password"
             type="password"
             class="input-info"
+            required
           ></input>
           <input
-            placeholder="Conform Your Password.."
+            placeholder="Confirm Password"
             name="confirm passwords"
             type="password"
             class="input-info"
+            required
           ></input>
-          <button class="submit">Sign Up</button>
-          {/* <br /> */}
-          <Link to="#" className="link">
-            Forgot Password?
-          </Link>{" "}
-          {/* <br /> */}
+          <button class="submit">SIGN UP</button>
           <Link to="/SignIn" className="link1 ">
             {" "}
             Already have an account?
           </Link>
         </form>
       </div>
-      <Footer />
     </div>
   );
 }

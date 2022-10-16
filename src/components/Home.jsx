@@ -10,23 +10,25 @@ function Home() {
   return (
     <React.Fragment>
       <Navbar />
-      <div className="flex flex-col-reverse md:flex-row justify-between">
+      <div className="flex flex-col-reverse items-center md:flex-row justify-between ">
         {/* left-side */}
         <div className="md:w-1/2 space-y-5 mt-14 md:mt-0">
-          <div>
+          <div className="ml-10">
             <h1 className="text-6xl font-medium">ONLINE RESUME BUILDER</h1>
             <Typed
-              className="text-[#64c1ff]  pl-2 text-5xl font-extrabold "
+              className="text-[#64c1ff]  pl-1 text-5xl font-extrabold "
               strings={["CREATIVE.", "RESUME.", "RECRUITERS."]}
               typeSpeed={120}
               backSpeed={140}
               loop
             />
           </div>
-          <p className="text-lg text-black-500 font-semibold">
-            In here you can make your own resume free.
+          <p style={{fontFamily:"'Poppins', sans-serif",fontWeight:'400'}} className="text-lg ml-12 text-black-500 font-semibold">
+            Here you can make your own free resume
             <br />
-            And even you can find a job for your self
+            and even can find jobs for yourself
+            <br />
+            based on recommendations
           </p>
           {/* <button
              className="rounded-md bg-[#64c1ff]  mt-5 py-4 px-4 text-Black hover:text-blue-500 hover:bg-white shadow transition-all 
@@ -40,7 +42,7 @@ function Home() {
         </div>
       </div>
       <Features />
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 }
